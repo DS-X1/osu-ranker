@@ -11,17 +11,48 @@ clear = lambda: os.system('cls')
 
 
 print("osu!ranker v1.0")
-print("")
-print("Pick a gamemode.")
-game_mode = int(input("1. osu! \n2. osu!taiko \n3. osu!catch \n4. osu!mania \n>"))
+input("")
 
-if game_mode == 1:
-	choices = int(input("1. Performance \n2. Spotlights \n3.Score \n4. Country \n5. Multiplayer \n>"))
-	if choices == 1:
-		df = pd.read_html("https://osu.ppy.sh/rankings/osu/performance")
-		df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
-		print(df[0].loc[0:4])
-	elif choices == 2:
-		df = pd.read_html("https://osu.ppy.sh/rankings/osu/charts")
-		df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
-		print(df[0].loc[0:4])
+while True:
+	clear()
+	print("Pick a gamemode.")
+	print("")
+	game_mode = int(input("1. osu! \n2. osu!taiko \n3. osu!catch \n4. osu!mania \n>"))
+	clear()
+
+	if game_mode == 1:
+		print("Choose a filter.")
+		print("")
+		choices = int(input("1. Performance \n2. Spotlights \n3. Score \n4. Country \n5. Multiplayer \n6. Go Back \n>"))
+		clear()
+		print("Fetching Results...")
+		if choices == 1:
+			clear()
+			df = pd.read_html("https://osu.ppy.sh/rankings/osu/performance")
+			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			print(df[0].loc[0:4])
+			input("")
+
+		elif choices == 2:
+			clear()
+			df = pd.read_html("https://osu.ppy.sh/rankings/osu/charts")
+			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			print(df[0].loc[0:4])
+			input("")
+
+		elif choices == 3:
+			clear()
+			df = pd.read_html("https://osu.ppy.sh/rankings/osu/score")
+			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			print(df[0].loc[0:4])
+			input("")
+
+		elif choices == 4:
+			clear()
+			df = pd.read_html("https://osu.ppy.sh/rankings/osu/country")
+			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			print(df[0].loc[0:4])
+			input("")
+
+		else:
+			continue
