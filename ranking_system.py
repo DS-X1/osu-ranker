@@ -25,11 +25,12 @@ while True:
 		print("")
 		choices = int(input("1. Performance \n2. Spotlights \n3. Score \n4. Country \n5. Multiplayer \n6. Go Back \n>"))
 		clear()
-		print("Fetching Results...")
+		
 		if choices == 1:
-			clear()
+			print("Fetching Results...")
 			df = pd.read_html("https://osu.ppy.sh/rankings/osu/performance")
 			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			clear()
 			print(df[0].loc[0:4])
 			input("")
 
@@ -41,16 +42,26 @@ while True:
 			input("")
 
 		elif choices == 3:
-			clear()
+			print("Fetching Results...")
 			df = pd.read_html("https://osu.ppy.sh/rankings/osu/score")
 			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			clear()
 			print(df[0].loc[0:4])
 			input("")
 
 		elif choices == 4:
-			clear()
+			print("Fetching Results...")
 			df = pd.read_html("https://osu.ppy.sh/rankings/osu/country")
 			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			clear()
+			print(df[0].loc[0:4])
+			input("")
+
+		elif choices == 5:
+			print("Fetching Results...")
+			df = pd.read_html("https://osu.ppy.sh/multiplayer/rooms/latest")
+			df[0]=df[0].rename(columns={'Unnamed: 0':"Ranking","Unnamed: 1":"Username"})
+			clear()
 			print(df[0].loc[0:4])
 			input("")
 
