@@ -208,5 +208,11 @@ while True:
 		
 		else:
 			continue
-	
+	elif game_mode == 727:
+		clear()
+		print("wysi"*727)
+		input("")
+		continue
+	else:
+		continue
 	
